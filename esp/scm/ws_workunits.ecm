@@ -1077,6 +1077,7 @@ ESPStruct QuerySetQueryAction
     string Id;
     string Name;
     bool Suspended;
+    bool Activated;
     string Status;
 };
 
@@ -1085,6 +1086,7 @@ ESPrequest WUQuerySetActionQueriesRequest
     string  QuerySetName;
     bool Remove(false);
     bool ToggleSuspend(false);
+    bool Activate;
     ESParray<ESPstruct QuerySetQueryAction> QuerysetQueryActions;
 };
 

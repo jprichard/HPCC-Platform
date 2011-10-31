@@ -341,6 +341,18 @@ bool CWsWorkunitsEx::onWUQuerysetActionQueries(IEspContext &context, IEspWUQuery
                 action->setStatus("Completed");
                 actions.append(*action.getClear());
             }
+            if (req.getActivate())
+            {
+                //remove alias from exist query (if there is one)
+                //add default alias.
+
+                Owned<IEspQuerySetQueryAction> action = createQuerySetQueryAction("", "");
+                action->setId(item.getId());
+                action->setStatus("Completed");
+                action->setActivated(true);
+                actions.append(*action.getClear());
+            }
+
         }
     }
     resp.setQuerysetQueryActions(actions);
